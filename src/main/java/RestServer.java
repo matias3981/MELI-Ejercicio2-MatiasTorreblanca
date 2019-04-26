@@ -7,6 +7,7 @@ public class RestServer {
         final AgencyService agencyService = new AgencyServiceImpl();
 
         get("/agencias", (request, response) -> {
+            request.headers("Access-Control-Allow-Origin");
             response.type("application/json");
             MyLogger.generateLogger(request.url()+"/"+request.queryString());
             try {

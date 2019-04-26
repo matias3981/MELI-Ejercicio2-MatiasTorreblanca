@@ -50,13 +50,17 @@ public class AgencyServiceImpl implements AgencyService {
             }
 
 
-
+            if(agencies.length > 0) {
+                AgencyMap.clear();
             for (Agency agencia: agencies){
                 AgencyMap.put(agencia.getId(), agencia);
             }
+            } else {
+                AgencyMap.clear();
+            }
 
         } catch (IOException e) {
-                throw new CustomException("Revise los paramatros enviados");
+                throw new CustomException("Revise los parametros enviados");
 
         }
             return AgencyMap.values();
